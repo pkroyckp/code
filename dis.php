@@ -5,7 +5,7 @@ xyz
 </title>
 </head>
 <?php
-echo "Pradip Kumar Roy"
+echo "Pradip Kumar Roy";
 ?>
 
 <body>
