@@ -5,6 +5,9 @@ simple
 </title>
 </head>
 <body>
+  <?php
+echo"Pradip VideoChat App";
+?>
 <script>
 var vidyoConnector;
 function onVidyoClientLoaded(status){
