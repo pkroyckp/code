@@ -17,7 +17,7 @@ if(status.state=="READY")
 VC.CreateVidyoConnector({
 viewId:"renderer",
 viewStyle:"VIDYO_CONNECTORVIEWSTYLE_Default",
-remoteParticipants:80,
+remoteParticipants:4,
 logFileFilter:"error",
 logFileName:"",
 userData:""
