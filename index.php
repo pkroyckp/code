@@ -5,9 +5,6 @@ simple
 </title>
 </head>
 <body>
-  <?php
-echo"Pradip VideoChat App";
-?>
 <script>
 var vidyoConnector;
 function onVidyoClientLoaded(status){
@@ -17,7 +14,7 @@ if(status.state=="READY")
 VC.CreateVidyoConnector({
 viewId:"renderer",
 viewStyle:"VIDYO_CONNECTORVIEWSTYLE_Default",
-remoteParticipants:4,
+remoteParticipants:80,
 logFileFilter:"error",
 logFileName:"",
 userData:""
@@ -45,9 +42,9 @@ function handleCameraChange() {
 }
 function joinCall(){
 vidyoConnector.Connect({
-host:"prod.vidyo.io",
-token:"cHJvdmlzaW9uAHVzZXIxQDc3MjQyYS52aWR5by5pbwA2Mzc1NDUxODQwNwAAOWUwZGQ5NzJkZmRkY2I0MTNkMGFmNjk4MTllYmE5OGFlZGY1NGFkY2VhY2U4OTM4N2Q4N2E2ZGNhZDY0ZTQwZWFkZWJiZTc5M2RiYzY1NzUwYzdhNTA5NDEyYzBiMDJh",
-displayName:"pradip",
+host:"77242a.vidyo.io",
+token:"cHJvdmlzaW9uAFByYWRpcEA3NzI0MmEudmlkeW8uaW8ANjM3NTQ1MjU5MzMAADUwZjUyMzY0ZmQ0YzUzNDgxM2FjMTcyNGVmMTA4Mzc1OTIwM2Q5YTEyZGM5MTFkMzM5YmE2MjY0MjUxYTc5ODMzNzliMTg5MWViYWUxNTdmN2Q4NThlMmMxMGIzY2NiOA==",
+displayName:"Pradip",
 resourceId:"Class X",
 onSuccess: function()
 {
