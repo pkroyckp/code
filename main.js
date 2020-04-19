@@ -1,10 +1,9 @@
-let Peer = require('simple-peer')
+  let Peer = require('simple-peer')
 let socket = io()
 const video = document.querySelector('video')
-const filter = document.querySelector('#filter')
-const checkboxTheme = document.querySelector('#theme')
+
 let client = {}
-let currentFilter
+
 //get stream
 navigator.mediaDevices.getUserMedia({ video: true, audio: true })
     .then(stream => {
@@ -12,11 +11,6 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
         video.srcObject = stream
         video.play()
 
-        filter.addEventListener('change', (event) => {
-            currentFilter = event.target.value
-            video.style.filter = currentFilter
-            SendFilter(currentFilter)
-            event.preventDefault
         })
 
         //used to initialize a peer
@@ -26,15 +20,15 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
                 CreateVideo(stream)
             })
             //This isn't working in chrome; works perfectly in firefox.
-            // peer.on('close', function () {
-            //     document.getElementById("peerVideo").remove();
-            //     peer.destroy()
-            // })
-            peer.on('data', function (data) {
-                let decodedData = new TextDecoder('utf-8').decode(data)
-                let peervideo = document.querySelector('#peerVideo')
-                peervideo.style.filter = decodedData
+            peer.on('close', function () {
+                document.getElementById("peerVideo").remove();
+                peer.destroy()
             })
+           // peer.on('data', function (data) {
+              //  let decodedData = new TextDecoder('utf-8').decode(data)
+              //  let peervideo = document.querySelector('#peerVideo')
+              //  peervideo.style.filter = decodedData
+            // })
             return peer
         }
 
@@ -72,44 +66,23 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
             let video = document.createElement('video')
             video.id = 'peerVideo'
             video.srcObject = stream
-            video.setAttribute('class', 'embed-responsive-item')
+            video.class='embed-responsive-item'
             document.querySelector('#peerDiv').appendChild(video)
             video.play()
-            //wait for 1 sec
-            setTimeout(() => SendFilter(currentFilter), 1000)
-
-            video.addEventListener('click', () => {
-                if (video.volume != 0)
-                    video.volume = 0
-                else
-                    video.volume = 1
-            })
-
+            
         }
 
         function SessionActive() {
             document.write('Session Active. Please come back later')
         }
 
-        function SendFilter(filter) {
-            if (client.peer) {
-                client.peer.send(filter)
-            }
-        }
-
-        function RemovePeer() {
-            document.getElementById("peerVideo").remove();
-            document.getElementById("muteText").remove();
-            if (client.peer) {
-                client.peer.destroy()
-            }
-        }
+        
 
         socket.on('BackOffer', FrontAnswer)
         socket.on('BackAnswer', SignalAnswer)
         socket.on('SessionActive', SessionActive)
         socket.on('CreatePeer', MakePeer)
-        socket.on('Disconnect', RemovePeer)
+        //socket.on('Disconnect', RemovePeer)
 
     })
     .catch(err => document.write(err))
