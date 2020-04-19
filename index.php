@@ -46,7 +46,7 @@ function handleCameraChange() {
 function joinCall(){
 vidyoConnector.Connect({
 host:"prod.vidyo.io",
-token:"cHJvdmlzaW9uAHByYWRpcEA3NzI0MmEudmlkeW8uaW8ANjM3NTQ1MTQ2MTYAAGU5MTllNmQyMGQ3ZTZhYTAyMWUxYWI5MGVkZjg2NjMxZjkxOTgwNzY4ZGVlYTc3M2VmZWZjMmRlM2QwNTQzYzQwZGIwYTA2MTRmZjM4YzkxYWM4MjE5NWE2YTg0MjM4YQ==",
+token:"cHJvdmlzaW9uAHVzZXIxQDc3MjQyYS52aWR5by5pbwA2Mzc1NDUxODQwNwAAOWUwZGQ5NzJkZmRkY2I0MTNkMGFmNjk4MTllYmE5OGFlZGY1NGFkY2VhY2U4OTM4N2Q4N2E2ZGNhZDY0ZTQwZWFkZWJiZTc5M2RiYzY1NzUwYzdhNTA5NDEyYzBiMDJh",
 displayName:"pradip",
 resourceId:"Class X",
 onSuccess: function()
